@@ -4592,3 +4592,11 @@
 2019-09-05 13:34:15.499 -03:00 [DBG] Getting claims for access token for subject: 63b7d4c9-82cd-4b0a-a271-a0241c9b4e30
 2019-09-05 13:34:15.700 -03:00 [INF] {"ClientId":"Administrador","ClientName":"Administrador Geral","RedirectUri":null,"Endpoint":"Token","SubjectId":"63b7d4c9-82cd-4b0a-a271-a0241c9b4e30","Scopes":"email openid profile Administrador","GrantType":"password","Tokens":[{"TokenType":"access_token","TokenValue":"****Ju_A","$type":"Token"}],"Category":"Token","Name":"Token Issued Success","EventType":"Success","Id":2000,"Message":null,"ActivityId":"0HLPI3RHNSHT9:00000001","TimeStamp":"2019-09-05T16:34:15.0000000Z","ProcessId":20952,"LocalIpAddress":"::1:5000","RemoteIpAddress":"::1","$type":"TokenIssuedSuccessEvent"}
 2019-09-05 13:34:15.704 -03:00 [DBG] Token request success.
+2019-09-05 16:04:20.984 -03:00 [INF] Starting IdentityServer4 version 2.5.0.0
+2019-09-05 16:04:21.052 -03:00 [INF] You are using the in-memory version of the persisted grant store. This will store consent decisions, authorization codes, refresh and reference tokens in memory only. If you are using any of those features in production, you want to switch to a different store implementation.
+2019-09-05 16:04:21.060 -03:00 [INF] Using the default authentication scheme Identity.Application for IdentityServer
+2019-09-05 16:04:21.060 -03:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for authentication
+2019-09-05 16:04:21.061 -03:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-in
+2019-09-05 16:04:21.061 -03:00 [DBG] Using Identity.External as default ASP.NET Core scheme for sign-out
+2019-09-05 16:04:21.063 -03:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for challenge
+2019-09-05 16:04:21.063 -03:00 [DBG] Using Identity.Application as default ASP.NET Core scheme for forbid
