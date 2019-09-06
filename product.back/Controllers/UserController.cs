@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace product.back.Controllers
 {
-    public class AuthController : Controller
+    public class UserController : Controller
     {
         public IActionResult Index()
         {
