@@ -25,7 +25,8 @@ namespace product.Users
         {
            return new ApiResource[]
             {
-                new ApiResource("Administrador", "Administrador Geral"){
+                new ApiResource("Administrador", 
+                                "Administrador Geral"){
                     ApiSecrets = {
                         new Secret(Startup.Configuration.GetSection("keys")["ApiAdmin"].Sha256())
                     }
@@ -38,7 +39,7 @@ namespace product.Users
             return new[]
             {                
                 new Client {
-                    /*  ClientId = "Administrador",
+                    ClientId = "Administ",
                     ClientName = "Administrador Geral",
                     //AccessTokenLifetime = 600, // 10 minutes, default 60 minutes
                     AllowedGrantTypes = GrantTypes.ResourceOwnerPassword,
@@ -53,7 +54,7 @@ namespace product.Users
                     },
                     ClientSecrets = {
                         new Secret(Startup.Configuration.GetSection("keys")["ClientAdmin"].Sha256())
-                    }*/
+                    }
                 }
             };
         }
