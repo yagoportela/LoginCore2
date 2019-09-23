@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using product.Users.Models;
-using product.Users.Entities.Identity;
-
+using Microsoft.AspNetCore.Identity;
 namespace product.Users.Data
 {
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -19,14 +18,15 @@ namespace product.Users.Data
 
         private void ConfigureIdentityContext(ModelBuilder builder)
         {
-            builder.Entity<UserIdentityRole>().ToTable("Roles");
-            builder.Entity<UserIdentityRoleClaim>().ToTable("RoleClaims");
-            builder.Entity<UserIdentityUserRole>().ToTable("UserRoles");
+            builder.Entity<ApplicationUser>().ToTable("Users");
+            builder.Entity<IdentityRole>().ToTable("Roles");
+            builder.Entity<IdentityUserClaim<string>>().ToTable("RoleClaims");
+            builder.Entity<IdentityUserRole<string>>().ToTable("UserRoles");
+            builder.Entity<IdentityRoleClaim<string>>().ToTable("RoleClaims");
+            builder.Entity<IdentityUserLogin<string>>().ToTable("UserLogins");
+            builder.Entity<IdentityUserClaim<string>>().ToTable("UserClaims");
+            builder.Entity<IdentityUserToken<string>>().ToTable("UserTokens");
 
-            builder.Entity<UserIdentity>().ToTable("Users");
-            builder.Entity<UserIdentityUserLogin>().ToTable("UserLogins");
-            builder.Entity<UserIdentityUserClaim>().ToTable("UserClaims");
-            builder.Entity<UserIdentityUserToken>().ToTable("UserTokens");
         }
     }
 }
