@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using UsersData.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace UsersData.Infra.Data.Mapping
 {
@@ -15,17 +12,17 @@ namespace UsersData.Infra.Data.Mapping
 
             builder.HasKey(c => c.Id);
 
-            builder.Property(c => c.Cpf)
-                .IsRequired()
-                .HasColumnName("Cpf");
-
-            builder.Property(c => c.BirthDate)
-                .IsRequired()
-                .HasColumnName("BirthDate");
-
             builder.Property(c => c.Name)
                 .IsRequired()
                 .HasColumnName("Name");
+
+            builder.Property(c => c.Email)
+                .IsRequired()
+                .HasColumnName("Email");
+
+            builder.Property(c => c.Cell_phone)
+                .IsRequired()
+                .HasColumnName("Cell");
         }
     }
 }
