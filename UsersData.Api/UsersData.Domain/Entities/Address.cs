@@ -10,6 +10,8 @@ namespace UsersData.Domain.Entities
         public string Number {get; set;}
         public string Complement {get; set;}
         public string ZipCode {get; set;}
+        public string Longitude {get; set;}
+        public string Altitude {get; set;}
         public int IdUser {get; set;}
         
     }
