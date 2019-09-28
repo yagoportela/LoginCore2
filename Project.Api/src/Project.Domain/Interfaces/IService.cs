@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using Project.Domain.Entities;
+using Project.Domain.Abstracts;
 using System.Collections.Generic;
 
 namespace Project.Domain.Interfaces

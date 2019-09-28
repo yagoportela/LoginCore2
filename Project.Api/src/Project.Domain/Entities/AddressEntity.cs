@@ -1,6 +1,8 @@
+using Project.Domain.Abstracts;
+
 namespace Project.Domain.Entities
 {
-    public class Address : BaseEntity
+    public class AddressEntity : BaseEntity
     {
         public string Countries {get; set;}
         public string State {get; set;}
@@ -12,7 +14,7 @@ namespace Project.Domain.Entities
         public string ZipCode {get; set;}
         public string Longitude {get; set;}
         public string Altitude {get; set;}
-        public int IdUser {get; set;}
+        public string Obs {get; set;}
         
     }
 }

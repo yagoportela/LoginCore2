@@ -4,25 +4,20 @@ using Project.Domain.Entities;
 
 namespace Project.Infra.Data.Mapping
 {
-    public class UserMap : IEntityTypeConfiguration<User>
+    public class UserMap : IEntityTypeConfiguration<UserEntity>
     {
-        public void Configure(EntityTypeBuilder<User> builder)
+
+        public void Configure(EntityTypeBuilder<UserEntity> builder)
         {
             builder.ToTable("User");
 
-            builder.HasKey(c => c.Id);
+            builder.HasKey(u => u.Id);
 
-            builder.Property(c => c.Tipo)
-                .IsRequired()
-                .HasColumnName("Name");
-
-            builder.Property(c => c.ImgPerfil)
-                .IsRequired()
-                .HasColumnName("Email");
-
-            builder.Property(c => c.ImgPerfil)
-                .IsRequired()
-                .HasColumnName("Cell");
+            builder.HasIndex(u => u.ImgPerfil)
+                   .IsUnique();
+            
+            builder.Property(u => u.Tipo)
+                   .IsRequired();
         }
     }
 }

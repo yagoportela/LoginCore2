@@ -1,12 +1,10 @@
 ﻿using FluentValidation;
 using Project.Domain.Entities;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Project.Service.Validators
 {
-    public class UserValidator : AbstractValidator<User>
+    public class UserValidator : AbstractValidator<UserEntity>
     {
         public UserValidator()
         {

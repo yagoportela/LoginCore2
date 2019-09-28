@@ -1,43 +1,91 @@
-﻿using Project.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using Project.Domain.Abstracts;
 using Project.Domain.Interfaces;
 using Project.Infra.Data.Context;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+using System.Threading.Tasks;
 
 namespace Project.Infra.Data.Repository
 {
-    public class BaseRepository<T> : IRepository<T> where T : BaseEntity
-    {
-        private MySqlContext context = new MySqlContext();
+   public class BaseRepository<T> : IRepository<T> where T : BaseEntity {
 
-        public void Insert(T obj)
-        {
-            context.Set<T>().Add(obj);
-            context.SaveChanges();
+        protected readonly ApplicationDbContext _context;
+        private DbSet<T> _dataset;
+        public BaseRepository (ApplicationDbContext context) {
+            _context = context;
+            _dataset = _context.Set<T> ();
+        }
+        public async Task<bool> DeleteAsync (Guid id) {
+            try {
+                var result = await _dataset.SingleOrDefaultAsync (p => p.Id.Equals (id));
+                if (result == null)
+                    return false;
+
+                _dataset.Remove(result);
+                await _context.SaveChangesAsync();
+                return true;
+
+            } catch (Exception ex) {
+                throw ex;
+            }
         }
 
-        public void Update(T obj)
-        {
-            context.Entry(obj).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            context.SaveChanges();
+        public async Task<T> InsertAsync (T item) {
+            try {
+                if (item.Id == Guid.Empty) {
+                    item.Id = Guid.NewGuid();
+                }
+
+                item.CreateAt = DateTime.UtcNow;
+                _dataset.Add(item);
+
+                await _context.SaveChangesAsync ();
+            } catch (Exception ex) {
+                throw ex;
+            }
+
+            return item;
         }
 
-        public void Delete(int id)
-        {
-            context.Set<T>().Remove(Select(id));
-            context.SaveChanges();
+        public async Task<bool> ExistAsync (Guid id) {
+            return await _dataset.AnyAsync(p => p.Id.Equals(id));
         }
 
-        public IList<T> Select()
-        {
-            return context.Set<T>().ToList();
+        public async Task<T> SelectAsync (Guid id) {
+            try {
+                return await _dataset.SingleOrDefaultAsync(p => p.Id.Equals (id));
+            } catch (Exception ex) {
+
+                throw ex;
+            }
         }
 
-        public T Select(int id)
-        {
-            return context.Set<T>().Find(id);
+        public async Task<IEnumerable<T>> SelectAsync () {
+            try {
+                return await _dataset.ToListAsync();
+            } catch (Exception ex) {
+                throw ex;
+            }
+        }
+
+        public async Task<T> UpdateAsync(T item) {
+            try {
+                var result = await _dataset.SingleOrDefaultAsync (p => p.Id.Equals (item.Id));
+                if (result == null)
+                    return null;
+
+                item.UpdateAt = DateTime.UtcNow;
+                item.CreateAt = result.CreateAt;
+
+                _context.Entry (result).CurrentValues.SetValues (item);
+                await _context.SaveChangesAsync ();
+            } catch (Exception ex) {
+                throw ex;
+            }
+
+            return item;
         }
     }
 }
