@@ -12,14 +12,11 @@ namespace Project.Infra.Data.Mapping
 
             builder.HasKey(u => u.Id); 
 
-            builder.Property(a => a.UserEntity)
-                   .IsRequired();           
+            builder.HasOne(a => a.User);       
 
-            builder.Property(a => a.CompanyEntity)
-                   .IsRequired(); 
+            builder.HasOne(a => a.Company);
 
-            builder.Property(a => a.AddressEntity)
-                   .IsRequired(); 
+            builder.HasOne(a => a.Address);
 
             builder.Property(a => a.NameWorkshop)
                    .HasMaxLength(200);

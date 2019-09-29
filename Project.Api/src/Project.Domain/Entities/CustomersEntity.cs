@@ -5,11 +5,11 @@ namespace Project.Domain.Entities
 {
     public class CustomersEntity : BaseEntity
     {
-        public UserEntity UserEntity;
-        public string CPF;
-        public string RG;
-        public DateTime BirthDate;
-        public AddressEntity AddressEntity {get; set;}
+        public UserEntity User {get; set;}
+        public string CPF {get; set;}
+        public string RG {get; set;}
+        public DateTime BirthDate {get; set;}
+        public AddressEntity Address {get; set;}
                 
     }
 }

@@ -8,15 +8,13 @@ namespace Project.Infra.Data.Mapping
     {
         public void Configure(EntityTypeBuilder<CompanyEntity> builder)
         {
-              builder.ToTable("User");
+              builder.ToTable("Company");
 
               builder.HasKey(u => u.Id);
 
-              builder.Property(a => a.UserEntity)
-                   .IsRequired();
+              builder.HasOne(a => a.User);
                    
-              builder.Property(a => a.AddressEntity)
-                   .IsRequired();                     
+              builder.HasOne(a => a.Address);                    
             
               builder.Property(a => a.CNPJ)
                      .HasMaxLength(30);

@@ -8,7 +8,7 @@ namespace Project.Domain.Entities
         public string NomeFantasia { get; set; }        
         public string Phone1 {get; set;}
         public string Phone2 {get; set;}
-        public UserEntity UserEntity {get; set;}
-        public AddressEntity AddressEntity {get; set;}
+        public UserEntity User {get; set;}
+        public AddressEntity Address {get; set;}
     }
 }
