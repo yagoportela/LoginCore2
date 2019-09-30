@@ -14,26 +14,57 @@ namespace Application.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        private readonly ICompany _company;
         private readonly IUser _user;
+        private readonly IAddress _address;
 
-        public ValuesController(IUser user){
+        public ValuesController(ICompany company , IUser user, IAddress address){
+            _company = company;
             _user = user;
+            _address = address;
         }
 
-        [HttpGet]
-        public async Task<ActionResult> Get()
-        {
-            if(!ModelState.IsValid)            
-                return BadRequest(ModelState);
-            
+        [HttpPost]
+        public async Task<ActionResult> Get([FromBody] CompanyEntity company)
+        {            
             
             try {
+                /*var userEntity = new UserEntity();
+                    userEntity.Id = Guid.NewGuid();
+                    userEntity.ImgPerfil = "NovosTeses.png";
+                    userEntity.Tipo = typeUsers.Cliente;          
+
+                var addressEntity = new AddressEntity();
+                    addressEntity.Id = Guid.NewGuid();
+                    addressEntity.Countries = "teste";
+                    addressEntity.State = "teste";
+                    addressEntity.City = "teste";
+                    addressEntity.District = "teste";
+                    addressEntity.Street = "teste";
+                    addressEntity.Number = "teste";
+                    addressEntity.Complement = "teste";
+                    addressEntity.ZipCode = "teste";
+                    addressEntity.Longitude = "teste";
+                    addressEntity.Altitude = "teste";
+                    addressEntity.Obs = "teste";
+                
+                var companyEntity = new CompanyEntity();
+                    companyEntity.Id = Guid.NewGuid();
+                    companyEntity.CNPJ = "098979869807";
+                    companyEntity.RazaoSocial = "Testette";
+                    companyEntity.NomeFantasia = "novostestes";
+                    companyEntity.Phone1 = "768975";
+                    companyEntity.Phone2 = "768975";
+                    companyEntity.Address = addressEntity;
+                    companyEntity.User = userEntity;*/
+
                 var userEntity = new UserEntity();
-                userEntity.Id = Guid.NewGuid();
-                userEntity.ImgPerfil = "aggdjsgfdsjfds.png";
-                userEntity.Tipo = typeUsers.Cliente;
-                var inserir = _user.Post(userEntity);
-                return Ok(await _user.GetAll());
+                var addressEntity = new AddressEntity();
+                var companyEntity = new CompanyEntity();
+
+                //var InsertCompany = _company.Post(companyEntity);
+                
+                return Ok(await _company.GetAll());
             }
             catch (ArgumentException ex) {
                 return StatusCode((int)HttpStatusCode.InternalServerError, ex.Message);

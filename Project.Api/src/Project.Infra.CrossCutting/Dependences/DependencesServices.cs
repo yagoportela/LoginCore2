@@ -1,4 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
+using Project.Domain.Entities;
 using Project.Domain.Interfaces.Services.User;
 using Project.Services.Services.User;
 
@@ -9,6 +10,12 @@ namespace Project.Infra.CrossCutting.Dependences
         public static void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<IUser, UserServices>();
+            services.AddTransient<ICompany, CompanyServices>();
+            services.AddTransient<IAddress, AddressServices>();
+
+            services.AddTransient<CompanyEntity>();
+            services.AddTransient<UserEntity>();
+            services.AddTransient<AddressEntity>();
         }
     }
 }
