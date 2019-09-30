@@ -12,10 +12,6 @@ namespace Project.Infra.CrossCutting.Dependences
             services.AddTransient<IUser, UserServices>();
             services.AddTransient<ICompany, CompanyServices>();
             services.AddTransient<IAddress, AddressServices>();
-
-            services.AddTransient<CompanyEntity>();
-            services.AddTransient<UserEntity>();
-            services.AddTransient<AddressEntity>();
         }
     }
 }

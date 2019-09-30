@@ -9,7 +9,7 @@ namespace Project.Domain.Abstracts
         private Guid _id { get; set; }
         public Guid Id
         {
-            get {return _id == null ? (_id = Guid.NewGuid()) : _id;  }
+            get {return _id == Guid.Empty ? (_id = Guid.NewGuid()) : _id;  }
             set {_id =_id == null ? Guid.NewGuid() : _id; }
         }
         private DateTime? _createAt;
