@@ -12,8 +12,8 @@ using System;
 namespace Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20190929174515_Migrations_DataUser")]
-    partial class Migrations_DataUser
+    [Migration("20190930140941_InitialCreateUsers")]
+    partial class InitialCreateUsers
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -8,7 +8,7 @@ namespace Project.Infra.Data.Context
         public ApplicationDbContext CreateDbContext (string[] args){
 
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();            
-            optionsBuilder.UseMySql("Server=localhost;port=3306;DataBase=project;Uid=root;Pwd=");
+            optionsBuilder.UseMySql("Server=localhost;port=3306;DataBase=projectUsers;Uid=root;Pwd=");
             return new ApplicationDbContext (optionsBuilder.Options);
 
         }

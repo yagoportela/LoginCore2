@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Data.Migrations
 {
-    public partial class Migrations_DataUser : Migration
+    public partial class InitialCreateUsers : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
