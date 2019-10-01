@@ -1,6 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Data.Migrations
 {
@@ -13,19 +12,19 @@ namespace Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    Altitude = table.Column<string>(maxLength: 100, nullable: true),
-                    City = table.Column<string>(maxLength: 200, nullable: true),
-                    Complement = table.Column<string>(maxLength: 200, nullable: true),
-                    Countries = table.Column<string>(nullable: true),
                     CreateAt = table.Column<DateTime>(nullable: true),
-                    District = table.Column<string>(maxLength: 200, nullable: true),
-                    Longitude = table.Column<string>(maxLength: 100, nullable: true),
-                    Number = table.Column<string>(maxLength: 20, nullable: true),
-                    Obs = table.Column<string>(maxLength: 200, nullable: true),
-                    State = table.Column<string>(maxLength: 200, nullable: true),
-                    Street = table.Column<string>(maxLength: 200, nullable: true),
                     UpdateAt = table.Column<DateTime>(nullable: true),
-                    ZipCode = table.Column<string>(maxLength: 20, nullable: true)
+                    Countries = table.Column<string>(nullable: true),
+                    State = table.Column<string>(maxLength: 200, nullable: true),
+                    City = table.Column<string>(maxLength: 200, nullable: true),
+                    District = table.Column<string>(maxLength: 200, nullable: true),
+                    Street = table.Column<string>(maxLength: 200, nullable: true),
+                    Number = table.Column<string>(maxLength: 20, nullable: true),
+                    Complement = table.Column<string>(maxLength: 200, nullable: true),
+                    ZipCode = table.Column<string>(maxLength: 20, nullable: true),
+                    Longitude = table.Column<string>(maxLength: 100, nullable: true),
+                    Altitude = table.Column<string>(maxLength: 100, nullable: true),
+                    Obs = table.Column<string>(maxLength: 200, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -38,9 +37,9 @@ namespace Data.Migrations
                 {
                     Id = table.Column<Guid>(nullable: false),
                     CreateAt = table.Column<DateTime>(nullable: true),
+                    UpdateAt = table.Column<DateTime>(nullable: true),
                     ImgPerfil = table.Column<string>(nullable: true),
-                    Tipo = table.Column<int>(nullable: false),
-                    UpdateAt = table.Column<DateTime>(nullable: true)
+                    Tipo = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -52,15 +51,15 @@ namespace Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    AddressId = table.Column<Guid>(nullable: true),
-                    CNPJ = table.Column<string>(maxLength: 30, nullable: true),
                     CreateAt = table.Column<DateTime>(nullable: true),
+                    UpdateAt = table.Column<DateTime>(nullable: true),
+                    CNPJ = table.Column<string>(maxLength: 30, nullable: true),
+                    RazaoSocial = table.Column<string>(maxLength: 200, nullable: true),
                     NomeFantasia = table.Column<string>(maxLength: 200, nullable: true),
                     Phone1 = table.Column<string>(maxLength: 15, nullable: true),
                     Phone2 = table.Column<string>(maxLength: 15, nullable: true),
-                    RazaoSocial = table.Column<string>(maxLength: 200, nullable: true),
-                    UpdateAt = table.Column<DateTime>(nullable: true),
-                    UserId = table.Column<Guid>(nullable: true)
+                    UserId = table.Column<Guid>(nullable: true),
+                    AddressId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -84,13 +83,13 @@ namespace Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    AddressId = table.Column<Guid>(nullable: true),
-                    BirthDate = table.Column<DateTime>(nullable: false),
-                    CPF = table.Column<string>(maxLength: 30, nullable: false),
                     CreateAt = table.Column<DateTime>(nullable: true),
-                    RG = table.Column<string>(maxLength: 30, nullable: true),
                     UpdateAt = table.Column<DateTime>(nullable: true),
-                    UserId = table.Column<Guid>(nullable: true)
+                    UserId = table.Column<Guid>(nullable: true),
+                    CPF = table.Column<string>(maxLength: 30, nullable: false),
+                    RG = table.Column<string>(maxLength: 30, nullable: true),
+                    BirthDate = table.Column<DateTime>(nullable: false),
+                    AddressId = table.Column<Guid>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -114,14 +113,14 @@ namespace Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(nullable: false),
-                    AddressId = table.Column<Guid>(nullable: true),
-                    CompanyId = table.Column<Guid>(nullable: true),
                     CreateAt = table.Column<DateTime>(nullable: true),
+                    UpdateAt = table.Column<DateTime>(nullable: true),
+                    UserId = table.Column<Guid>(nullable: true),
+                    CompanyId = table.Column<Guid>(nullable: true),
+                    AddressId = table.Column<Guid>(nullable: true),
                     NameWorkshop = table.Column<string>(maxLength: 200, nullable: true),
                     Phone1 = table.Column<string>(maxLength: 15, nullable: true),
-                    Phone2 = table.Column<string>(maxLength: 15, nullable: true),
-                    UpdateAt = table.Column<DateTime>(nullable: true),
-                    UserId = table.Column<Guid>(nullable: true)
+                    Phone2 = table.Column<string>(maxLength: 15, nullable: true)
                 },
                 constraints: table =>
                 {
