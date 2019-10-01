@@ -12,6 +12,9 @@ namespace Project.Domain.Abstracts
             get {return _id == Guid.Empty ? (_id = Guid.NewGuid()) : _id;  }
             set {_id =_id == null ? Guid.NewGuid() : _id; }
         }
+
+        private bool Ativo { get; set; }
+                
         private DateTime? _createAt;
         public DateTime? CreateAt
         {
